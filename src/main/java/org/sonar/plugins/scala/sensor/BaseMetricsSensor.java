@@ -99,8 +99,12 @@ public class BaseMetricsSensor extends AbstractScalaSensor {
       }
     }
 
-    sensorContext.saveMeasure(complexityOfClasses.getMeasure());
-    sensorContext.saveMeasure(complexityOfFunctions.getMeasure());
+    if (complexityOfClasses != null) {
+        sensorContext.saveMeasure(complexityOfClasses.getMeasure());
+    }
+    if (complexityOfFunctions != null) {
+        sensorContext.saveMeasure(complexityOfFunctions.getMeasure());
+    }
 
     computePackagesMetric(sensorContext, packages);
   }
